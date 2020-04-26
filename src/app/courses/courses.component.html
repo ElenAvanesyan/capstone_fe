@@ -1,14 +1,6 @@
 ﻿<div class="card mt-4">
-    <h4 class="card-header">You're logged in</h4>
-    <div class="card-body">
-        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-      <p> Name: {{user.firstName}} </p>
-      <p> Surname: {{user.lastName}} </p>
-    </div>
-</div>
-
-<div class="card mt-4">
-  <h4 class="card-header">Courses you've passed</h4>
+  <h4 class="card-header">All courses offered this semester</h4>
+  <button (click)="openFormModal()"> Generate schedule </button>
   <div class="card-body">
     <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
     <table id="courses">
@@ -18,7 +10,7 @@
         </th>
       </tr>
 
-      <tr *ngFor = "let row of passedCourses">
+      <tr *ngFor = "let row of courses">
         <td *ngFor = "let column of courseHeaders">
           {{row[column.fieldName]}}
         </td>
