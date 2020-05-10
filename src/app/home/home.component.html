@@ -2,8 +2,10 @@
     <h4 class="card-header">You're logged in</h4>
     <div class="card-body">
         <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-      <p> Name: {{user.firstName}} </p>
-      <p> Surname: {{user.lastName}} </p>
+      <div *ngIf="!loading">
+        <p> Name: {{user.firstName}} </p>
+        <p> Surname: {{user.lastName}} </p>
+      </div>
     </div>
 </div>
 
@@ -11,7 +13,7 @@
   <h4 class="card-header">Courses you've passed</h4>
   <div class="card-body">
     <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-    <table id="courses">
+    <table id="courses" *ngIf="!loading">
       <tr>
         <th *ngFor = "let column of courseHeaders">
           {{column.name}}
