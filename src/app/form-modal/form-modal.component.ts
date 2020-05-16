@@ -44,10 +44,10 @@ export class FormModalComponent {
     this.activeModal.close(this.myForm.value);
     this.courseService.generateSchedule(this.user.id, this.myForm.value).pipe(first())
       .subscribe(
-        data => this.schedule = data,
-        error => {
-          this.error = error;
-          this.loading = false;
-        });
+      data => this.schedule = data,
+      error => {
+        this.error = error;
+        this.loading = false;
+      });
   }
 }

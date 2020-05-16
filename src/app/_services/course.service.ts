@@ -18,11 +18,11 @@ export class CourseService {
   }
 
   getStudentCourses(studentId) {
-    return this.http.get<Course[]>(`${environment.apiUrl}/courses/${studentId}`);
+    return this.http.get<Course[]>(`${environment.apiUrl}/schedule/student/passed/${studentId}`);
   }
 
   generateSchedule(studentId, preferences) {
-    return this.http.post<any>(`${environment.apiUrl}/schedule/${studentId}/generate`, {preferences})
+    return this.http.post<any>(`${environment.apiUrl}/schedule/generate/${studentId}`, {preferences})
       .pipe(map(schedule => {
         return schedule;
       }));
