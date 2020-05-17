@@ -1,25 +1,27 @@
-﻿<div class="card mt-4 container-fluid">
-  <div class="row card-header">
-    <h4 class="col-8">All courses offered this semester</h4>
-    <div class="col-4">
-      <button (click)="openFormModal()" class="btn btn-success float-right"> Generate schedule </button>
+﻿<div class="container">
+  <div class="card mt-4 container-fluid app-container">
+    <div class="row card-header">
+      <h5 class="col-8">All courses available for you this semester</h5>
+      <div class="col-4">
+        <button (click)="openFormModal()" class="btn app-primary float-right"> Generate Schedule </button>
+      </div>
     </div>
-  </div>
-  <div class="card-body">
-    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-    <table id="courses" *ngIf="!loading">
-      <tr>
-        <th *ngFor = "let column of courseHeaders">
-          {{column.name}}
-        </th>
-      </tr>
+    <div class="card-body app-container-body">
+      <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+      <table id="courses" *ngIf="!loading">
+        <tr>
+          <th *ngFor = "let column of courseHeaders">
+            {{column.name}}
+          </th>
+        </tr>
 
-      <tr *ngFor = "let row of courses">
-        <td *ngFor = "let column of courseHeaders">
-          {{row[column.fieldName]}}
-        </td>
-      </tr>
+        <tr *ngFor = "let row of courses">
+          <td *ngFor = "let column of courseHeaders">
+            {{row[column.fieldName]}}
+          </td>
+        </tr>
 
-    </table>
+      </table>
+    </div>
   </div>
 </div>

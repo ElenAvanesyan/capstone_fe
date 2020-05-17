@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
     loading = false;
     user: Student;
     passedCourses: Course[];
-    courseHeaders = [{name: 'ID', fieldName: 'id'},
+    courseHeaders = [
       {name: 'Course Number', fieldName: 'courseNumber'},
       {name: 'Title', fieldName: 'title'},
       {name: 'Credits', fieldName: 'credit'}];
