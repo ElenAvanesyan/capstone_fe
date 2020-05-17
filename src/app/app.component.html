@@ -1,11 +1,9 @@
 ﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark app-navbar" *ngIf="currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" routerLink="/allCourses">Available Courses</a>
-    </div>
     <div class="navbar-nav app-navbar-logout">
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        <a class="nav-item nav-link" routerLink="/" *ngIf="!isProfessor">Home</a>
+        <a class="nav-item nav-link" routerLink="/allCourses" *ngIf="!isProfessor">All Courses</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>
 
