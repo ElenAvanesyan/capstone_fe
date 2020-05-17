@@ -15,7 +15,6 @@ export class ProfessorHomeComponent implements OnInit {
     courseHeaders = [
       {name: 'Course Number', fieldName: 'courseNumber'},
       {name: 'Title', fieldName: 'title'}];
-    capacity;
 
     constructor(private userService: StudentService,
                 private courseService: CourseService) { }
@@ -29,12 +28,11 @@ export class ProfessorHomeComponent implements OnInit {
       }, err => this.loading = false);
     }
 
-    getCapacity(courseId) {
-      this.courseService.getCourseCapacity(courseId).pipe(first()).subscribe(capacity => {
-        this.capacity = capacity;
+    getCapacity(course) {
+      this.courseService.getCourseCapacity(course.id).pipe(first()).subscribe(capacity => {
         Swal.fire({
           title: 'Course capacity',
-          text: `The capacity of this course is: ${this.capacity}`,
+          text: `The maximum capacity of \"${course.title}\" is: ${capacity}`,
           icon: 'success',
           confirmButtonText: 'OK'
         });

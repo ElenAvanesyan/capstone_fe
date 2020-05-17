@@ -22,7 +22,7 @@ export class CoursesComponent implements OnInit {
     ngOnInit() {
       this.user = JSON.parse(localStorage.getItem('currentUser'));
       this.loading = true;
-      this.courseService.getAllBySemester(this.semester).pipe(first()).subscribe(courses => {
+      this.courseService.getAllAvailableBySemester(this.user.id, this.semester).pipe(first()).subscribe(courses => {
         this.loading = false;
         this.courses = courses;
       }, err => this.loading = false);

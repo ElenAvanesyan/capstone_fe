@@ -17,6 +17,10 @@ export class CourseService {
     return this.http.get<Course[]>(`${environment.apiUrl}/schedule/course/term/${term}`);
   }
 
+  getAllAvailableBySemester(studentId, term) {
+    return this.http.get<Course[]>(`${environment.apiUrl}/schedule/available/${term}/${studentId}`);
+  }
+
   getStudentCourses(studentId) {
     return this.http.get<Course[]>(`${environment.apiUrl}/schedule/student/passed/${studentId}`);
   }
@@ -26,7 +30,7 @@ export class CourseService {
   }
 
   generateSchedule(studentId, preferences) {
-    return this.http.post<any>(`${environment.apiUrl}/schedule/generate/${studentId}`, {preferences})
+    return this.http.post<any>(`${environment.apiUrl}/schedule/generate/${studentId}`, preferences)
       .pipe(map(schedule => {
         return schedule;
       }));
