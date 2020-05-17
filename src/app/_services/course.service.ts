@@ -21,6 +21,10 @@ export class CourseService {
     return this.http.get<Course[]>(`${environment.apiUrl}/schedule/student/passed/${studentId}`);
   }
 
+  getCourseCapacity(courseId) {
+    return this.http.get<Course[]>(`${environment.apiUrl}/schedule/capacity/${courseId}`);
+  }
+
   generateSchedule(studentId, preferences) {
     return this.http.post<any>(`${environment.apiUrl}/schedule/generate/${studentId}`, {preferences})
       .pipe(map(schedule => {

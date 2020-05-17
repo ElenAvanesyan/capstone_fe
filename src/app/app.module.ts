@@ -15,7 +15,7 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { CoursesComponent } from './courses';
 import { FormModalComponent } from './form-modal/form-modal.component';
-import {ProfessorHomeComponent} from '@app/professor_home';
+import { ProfessorHomeComponent} from '@app/professor_home';
 
 @NgModule({
     imports: [
@@ -32,7 +32,7 @@ import {ProfessorHomeComponent} from '@app/professor_home';
         LoginComponent,
         CoursesComponent,
         FormModalComponent,
-        ProfessorHomeComponent
+        ProfessorHomeComponent,
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

@@ -1,11 +1,32 @@
 ﻿<div class="card mt-4">
-    <h4 class="card-header">You're logged in</h4>
-    <div class="card-body">
-        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-      <div *ngIf="!loading">
-        <p> Name: {{user.firstName}} </p>
-        <p> Surname: {{user.lastName}} </p>
-      </div>
+  <h5 class="card-header">Welcome, {{user.firstName}} {{user.lastName}}!</h5>
+  <div class="card-body">
+    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+    <div *ngIf="!loading">
     </div>
+  </div>
+
+  <div class="card-body app-container-body">
+    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+    <table id="courses" *ngIf="!loading">
+      <tr>
+        <th *ngFor = "let column of courseHeaders">
+          {{column.name}}
+        </th>
+        <th> Actions </th>
+      </tr>
+
+      <tr *ngFor = "let row of courses">
+        <td *ngFor = "let column of courseHeaders">
+          {{row[column.fieldName]}}
+        </td>
+        <td>
+          <input type='button' value='Get capacity' (click)="getCapacity(row.id)"/>
+        </td>
+      </tr>
+
+    </table>
+  </div>
 </div>
+
 
