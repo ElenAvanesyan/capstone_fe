@@ -4,15 +4,15 @@
     <div class="card-body">
       <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
       <div *ngIf="!loading">
-        <p> ID Number: A09160029 </p>
-        <p> Number of Credits: 40 </p>
+        <p> ID Number: {{user.idNumber}} </p>
+        <p> Username: {{user.username}} </p>
       </div>
     </div>
   </div>
 
   <div class="card mt-4">
     <h5 class="card-header">Courses you've passed</h5>
-    <div class="card-body app-container-body">
+    <div class="card-body app-container-home">
       <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
       <table id="courses" *ngIf="!loading">
         <tr>
