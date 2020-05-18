@@ -18,7 +18,7 @@ export class FormModalComponent {
   days = ['MWF', 'TH'];
   times = ['08:30-14:45', '13:30-18:20', '08:30-18:20'];
   numbers = [0, 1, 2, 3, 4];
-  tracks = ['ACS', 'MM'];
+  tracks = ['CS', 'MM'];
   headers = [
     {name: 'Course Number', fieldName: 'courseNumber'},
     {name: 'Title', fieldName: 'title'},

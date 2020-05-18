@@ -2,10 +2,10 @@
   <h4 class="modal-title">Generate Schedule</h4>
 </div>
 <form [formGroup]="myForm" (ngSubmit)="submitForm()" *ngIf="!schedule">
-  <div class="modal-boy">
+  <div class="modal-body">
     <div class="container">
       <div class="form-group">
-        <h6> Please fill in your preferences: </h6>
+        <h4> Please fill in your preferences: </h4>
         <br>
         <label for="preferredDays">More load on: </label>
         <select
@@ -24,16 +24,14 @@
           <option *ngFor="let time of times" [value]="time">{{ time }}</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="foundation">Include FOUNDATION course: </label>
-        <input
-          id="foundation"
-          class="form-control"
-          formControlName="isFoundationChecked"
-          type="checkbox"/>
+      <div class="form-group app-checkbox-div">
+        <label for="foundation">Include <b>Foundation</b> Course: </label>
+        <div class="app-checkbox-input">
+          <input type="checkbox" id="foundation" class="pull-right app-checkbox" formControlName="isFoundationChecked">
+        </div>
       </div>
       <div class="form-group">
-        <label for="numberOfCore">Number of core courses: </label>
+        <label for="numberOfCore">Number of <b>Core</b> Courses: </label>
         <select
           id="numberOfCore"
           class="form-control"
@@ -42,7 +40,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="preferredTime">Number of GenEd courses: </label>
+        <label for="preferredTime">Number of <b>GenEd</b> Courses: </label>
         <select
           id="numberOfGenEd"
           class="form-control"
@@ -51,7 +49,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="track">Choose track if applicable: </label>
+        <label for="track">Choose <b>Track</b> if applicable: </label>
         <select
           id="track"
           class="form-control"
@@ -60,7 +58,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="numberOfTrack">Number of track courses: </label>
+        <label for="numberOfTrack">Number of <b>Track</b> Courses: </label>
         <select
           id="numberOfTrack"
           class="form-control"
@@ -78,25 +76,57 @@
   </div>
 </form>
 
-<div *ngIf="schedule">
-  <table id="courses">
-    <tr>
-      <th *ngFor = "let column of headers">
-        {{column.name}}
-      </th>
-    </tr>
+<!--<div *ngIf="schedule">-->
+<!--  <table id="courses">-->
+<!--    <tr>-->
+<!--      <th *ngFor = "let column of headers">-->
+<!--        {{column.name}}-->
+<!--      </th>-->
+<!--    </tr>-->
 
-    <tr *ngFor = "let row of schedule.listOfCourseSection">
-      <td *ngFor = "let column of headers">
-        {{row[column.fieldName]}}
-      </td>
-    </tr>
+<!--    <tr *ngFor = "let row of schedule.listOfCourseSection">-->
+<!--      <td *ngFor = "let column of headers">-->
+<!--        {{row[column.fieldName]}}-->
+<!--      </td>-->
+<!--    </tr>-->
 
-  </table>
+<!--  </table>-->
 
-  <br>
+<!--  <br>-->
 
-  <ul>
-    <li  *ngFor = "let message of schedule.listOfMessages">{{message}}</li>
-  </ul>
+<!--  <ul>-->
+<!--    <li  *ngFor = "let message of schedule.listOfMessages">{{message}}</li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+
+<div class="" *ngIf="schedule">
+  <div class="modal-body">
+      <table id="courses" class="table table-hover">
+        <tr>
+          <th *ngFor = "let column of headers">
+            {{column.name}}
+          </th>
+        </tr>
+
+        <tr *ngFor = "let row of schedule.listOfCourseSection">
+          <td *ngFor = "let column of headers">
+            {{row[column.fieldName]}}
+          </td>
+        </tr>
+
+      </table>
+
+      <br>
+
+    <table class="table" *ngIf="schedule.listOfMessages.length">
+      <tbody>
+      <tr *ngFor = "let message of schedule.listOfMessages" class="app-message">
+        <td>
+          {{message}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
